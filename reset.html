@@ -2,12 +2,12 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <title>Abriendo HikeTracker...</title>
+    <title>Redirigiendo a HikeTracker...</title>
 </head>
 <body>
-    <p>Abriendo la aplicación HikeTracker...</p>
+    <p>Redirigiendo a la aplicación...</p>
     <script>
-        // Captura los tokens o códigos de recuperación que envía Supabase y los redirige a la app
+        // Se ejecuta solo nada más entrar a la página web desde el correo
         const params = window.location.search + window.location.hash;
         window.location.href = "hiketracker://reset" + params;
     </script>
