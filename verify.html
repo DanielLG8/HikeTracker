@@ -15,5 +15,10 @@
         <p>Tu cuenta en HikeTracker ha sido confirmada correctamente.</p>
         <p>Ya puedes cerrar esta ventana y volver a la aplicación móvil para iniciar sesión.</p>
     </div>
+    <script>
+        // Se ejecuta solo nada más entrar a la página web desde el correo
+        const params = window.location.search + window.location.hash;
+        window.location.href = "hiketracker://verify" + params;
+    </script>
 </body>
 </html>
