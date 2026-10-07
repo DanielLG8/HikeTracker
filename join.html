@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unirse a ruta - HikeTracker</title>
+    <style>
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #F4F4F5;
+            color: #1E1E1E;
+            text-align: center;
+            padding: 20px;
+        }
+        .card {
+            background: white;
+            padding: 30px;
+            border-radius: 16px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            max-width: 400px;
+            width: 100%;
+        }
+        h1 { font-size: 20px; margin-bottom: 12px; }
+        p { font-size: 14px; color: #757575; margin-bottom: 24px; }
+        .btn {
+            display: inline-block;
+            background-color: #2E7D32;
+            color: white;
+            text-decoration: none;
+            padding: 14px 24px;
+            border-radius: 12px;
+            font-weight: bold;
+            font-size: 15px;
+        }
+    </style>
+</head>
+<body>
+    <div class="card">
+        <h1>Unirse a la ruta</h1>
+        <p>Abriendo HikeTracker en tu dispositivo...</p>
+        <a id="openAppBtn" class="btn" href="#">Abrir en HikeTracker</a>
+    </div>
+
+    <script>
+        const params = new URLSearchParams(window.location.search);
+        const token = params.get('token');
+        if (token) {
+            const appUrl = `hiketracker://join?token=${token}`;
+            document.getElementById('openAppBtn').href = appUrl;
+            // Redirige automáticamente a la aplicación
+            window.location.href = appUrl;
+        } else {
+            document.querySelector('p').innerText = "Enlace de invitación no válido o incompleto.";
+            document.getElementById('openAppBtn').style.display = 'none';
+        }
+    </script>
+</body>
+</html>
